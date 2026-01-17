@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYBRID READ: Deep Thinking x Digital Expanding</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Noto+Serif+KR:wght@300;500;700;900&display=swap');
+
+        :root {
+            --paper-bg: #f4f1ea;
+            --ink-color: #2b2b2b;
+            --accent-gold: #c5a059;
+
+            --space-bg: #0b0d17;
+            --neon-blue: #4285F4;
+            --neon-purple: #bb86fc;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION: The Convergence --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            position: relative;
+            background: linear-gradient(135deg, var(--paper-bg) 50%, var(--space-bg) 50%);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .title-analog {
+            font-family: 'Noto Serif KR', serif;
+            color: var(--ink-color);
+            display: block;
+            /* transform: translateX(-50px); Removed for better alignment with new title */
+        }
+
+        .title-digital {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #fff;
+            display: block;
+            /* transform: translateX(50px); Removed for better alignment */
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(66, 133, 244, 0.8);
+        }
+
+        .hero p {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #666;
+            background: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #fff;
+            mix-blend-mode: difference;
+        }
+
+        /* --- SECTION A: ROOTS (Traditional) --- */
+        .section-roots {
+            background-color: var(--paper-bg);
+            color: var(--ink-color);
+            padding: 100px 5%;
+            font-family: 'Noto Serif KR', serif;
+            position: relative;
+        }
+
+        .section-header.roots {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header.roots h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .grid-roots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card-roots {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 40px;
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card-roots:hover {
+            transform: translateY(-5px);
+            box-shadow: 15px 15px 0px var(--accent-gold);
+        }
+
+        .card-roots h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--ink-color);
+            padding-left: 15px;
+        }
+
+        .card-roots p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--ink-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid var(--ink-color);
+            padding: 8px 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-link:hover {
+            background: var(--ink-color);
+            color: #fff;
+        }
+
+        /* --- SECTION B: WINGS (Digital) --- */
+        .section-wings {
+            background-color: var(--space-bg);
+            color: #fff;
+            padding: 100px 5%;
+            font-family: 'Noto Sans KR', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Stars Background */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .section-header.wings {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header.wings h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #4285F4, #bb86fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .grid-wings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-wings {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card-wings:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 30px rgba(66, 133, 244, 0.3);
+            border-color: rgba(66, 133, 244, 0.5);
+        }
+
+        .card-wings h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card-wings .tag {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-wings p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #555;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="title-analog" style="font-size: 0.8em;">BOOKSSAM's 독서 Lap</span>
+                <span class="title-digital" style="font-size: 0.5em; letter-spacing: 2px;">Deep Thinking Digital
+                    Expanding</span>
+            </h1>
+            <p>전통적 사유와 미래 기술이 만나는 하이브리드 독서 교육 플랫폼</p>
+            <div style="margin-top: 30px;">
+                <a href="https://read365.edunet.net/PureScreen/SchoolSearch?schoolName=%EC%9D%98%EC%A0%95%EB%B6%80%EC%97%AC%EC%9E%90%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90&provCode=J10&neisCode=J100000758"
+                    target="_blank" style="
+                    display: inline-block;
+                    padding: 12px 25px;
+                    background: rgba(255, 255, 255, 0.15);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    backdrop-filter: blur(10px);
+                    border-radius: 50px;
+                    color: #fff;
+                    text-decoration: none;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-weight: 500;
+                    font-size: 0.95rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='translateY(0)';">
+                    🏛️ 학교도서관 도서 검색 (의정부여고)
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">SCROLL ▼</div>
+    </section>
+
+    <section class="section-roots" id="roots">
+        <div class="section-header roots">
+            <span style="font-size: 1.2rem; color: #888; letter-spacing: 3px;">TRACK A</span>
+            <h2>Roots: 다시, 책으로</h2>
+            <p>종이책의 물성과 깊이 있는 사유를 회복하는 전통적 독서 프로그램</p>
+        </div>
+
+        <div class="grid-roots">
+            <div class="card-roots">
+                <h3>01. 독서하는 뇌</h3>
+                <p>뇌 과학적 관점에서 본 종이책 읽기의 중요성과 '깊이 있는 학습'의 원리를 탐구합니다.</p>
+                <a href="http://www.kocw.net/home/search/kemView.do?kemId=1188992" target="_blank" class="btn-link">KOCW
+                    뇌과학 강의 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>02. 슬로 리딩(Slow Reading)</h3>
+                <p>한 문장씩 곱씹어 읽으며 텍스트와 대화하는 적극적 읽기 방법을 지도합니다.</p>
+                <a href="https://www.ebse.co.kr/apps/main/main.do" target="_blank" class="btn-link">EBS 독서 교육 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>03. 문해력의 뿌리, 어휘</h3>
+                <p>한자어와 개념어 탐구를 통해 교과 지식의 구조를 세우는 어휘 독서 전략입니다.</p>
+                <a href="https://stdict.korean.go.kr/main/main.do" target="_blank" class="btn-link">표준국어대사전 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>04. 인문·사회: 공감 독서</h3>
+                <p>역사 소설과 르포르타주를 통해 타인의 삶에 공감하고 역사적 상상력을 기릅니다.</p>
+                <a href="https://www.history.go.kr/" target="_blank" class="btn-link">국사편찬위원회 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>05. 과학: 질문하는 인간</h3>
+                <p>과학 고전과 교양 도서를 통해 공식 너머의 탐구 과정과 철학을 읽어냅니다.</p>
+                <a href="https://www.scienceall.com/" target="_blank" class="btn-link">사이언스올 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>06. 예술: 감각을 깨우다</h3>
+                <p>그림책과 예술 도판을 활용한 '보는 독서'와 비평을 통해 심미적 감성을 기릅니다.</p>
+                <a href="https://www.mmca.go.kr/" target="_blank" class="btn-link">국립현대미술관 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>07. 낭독과 비경쟁 토론</h3>
+                <p>경쟁하지 않고 서로의 생각을 경청하며 따뜻한 책 이야기를 나눕니다.</p>
+                <a href="https://www.gmeum.com/" target="_blank" class="btn-link">그믐(지식공동체) ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>08. 손으로 생각하는 힘</h3>
+                <p>디지털을 잠시 끄고, 손으로 꾹꾹 눌러 쓰는 서평과 독서 기록장(Journal) 활동입니다.</p>
+                <a href="https://brunch.co.kr/" target="_blank" class="btn-link">글쓰기 플랫폼 참조 ↗</a>
+            </div>
+
+            <div class="card-roots">
+                <h3>09. 교실 속 작은 도서관</h3>
+                <p>교과 진도와 연계하여 교실에 비치할 양질의 단행본을 선정하고 운영하는 노하우입니다.</p>
+                <a href="http://www.morningreading.org/nbbs/list.html?id=recommen" target="_blank"
+                    class="btn-link">아침독서추천도서 ↗</a>
+            </div>
+
+            <div class="card-roots" style="border-color: var(--accent-gold); background: #fdfbf7;">
+                <h3>10. 도서관: 탐구의 실험실</h3>
+                <p><strong>[협력수업]</strong> 사서교사와 함께 수행평가 및 탐구 보고서를 위한 문헌 정보 탐색 과정을 지도합니다.</p>
+                <a href="http://www.riss.kr/index.do" target="_blank" class="btn-link">RISS 학술연구 ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wings" id="wings">
+        <div class="stars"></div>
+        <div class="section-header wings">
+            <span style="font-size: 0.9rem; color: var(--neon-blue); letter-spacing: 3px; font-weight: 700;">TRACK
+                B</span>
+            <h2>Wings: 안티 그래비티</h2>
+            <p>AI, 구글 등 인터넷을 활용하여 독서의 시공간을 확장하는 디지털 프로그램</p>
+        </div>
+
+        <div class="grid-wings">
+            <a href="https://artsandculture.google.com/" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Google Arts & Culture</span>
+                <h3>01. 텍스트의 중력 탈출</h3>
+                <p> '실감형 실험실'을 통해 물리적 책의 한계를 넘어서는 디지털 아카이빙 독서를 경험합니다.</p>
+            </a>
+
+            <a href="https://earth.google.com/web/" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Google Earth</span>
+                <h3>02. 스트리트 뷰 탐사</h3>
+                <p>문학 작품 속 배경을 3D로 투어하며 공간과 역사의 층위를 입체적으로 읽어냅니다.</p>
+            </a>
+
+            <a href="https://artsandculture.google.com/project/art-camera" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Art Camera</span>
+                <h3>03. 초해상도 아트 리터러시</h3>
+                <p>명화의 붓터치까지 줌인(Zoom-in)하며 시각적 은유를 언어로 풀어내는 융합 수업입니다.</p>
+            </a>
+
+            <a href="https://www.google.com/mars/" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Google Sky / Mars</span>
+                <h3>04. 팩트체크 데이터 독서</h3>
+                <p>SF적 상상력과 실제 우주 데이터를 비교 분석하며 과학적 사실을 검증합니다.</p>
+            </a>
+
+            <a href="https://gemini.google.com/" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Generative AI</span>
+                <h3>05. AI와 질문하는 독자</h3>
+                <p>생성형 AI의 답변을 비판적으로 검토(Reverse Reading)하며 질문의 수준을 높입니다.</p>
+            </a>
+
+            <a href="https://fliphtml5.com/bookcase/mssxn/" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Google Sites</span>
+                <h3>06. 무중력 큐레이션</h3>
+                <p>우리가 만든 우리의 책 '온라인 서가'에서 만납니다.</p>
+            </a>
+
+            <a href="https://jajakjajak.com/group" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block;">
+                <span class="tag">Digital Twin</span>
+                <h3>07. 성장형 포트폴리오</h3>
+                <p>협업 툴을 활용해 사고의 과정을 실시간으로 기록하고 데이터화하여 관리합니다.</p>
+            </a>
+
+            <a href="https://www.bl.uk/" target="_blank" class="card-wings"
+                style="text-decoration: none; display: block; border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(66, 133, 244, 0.2);">
+                <span class="tag">Metaverse Library</span>
+                <h3>08. 도서관의 공간 혁명</h3>
+                <p>물리적 도서관과 디지털 자원을 연결하여 바다를 건넌 세계 최고의 도서관으로 초대합니다.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>2026 BOOKSSAM Hybrid Reading Platform Project</p>
+        <p style="opacity: 0.6; margin-top: 5px;">Designed for Teachers seeking the balance between Analog & Digital</p>
+    </footer>
+
+</body>
+
+</html>
